@@ -11,7 +11,7 @@
 
 import UIKit
 
-class ___FILEBASENAMEASIDENTIFIER___Worker
+class ___FILEBASENAMEASIDENTIFIER___
 {
   // MARK: - Business Logic
   

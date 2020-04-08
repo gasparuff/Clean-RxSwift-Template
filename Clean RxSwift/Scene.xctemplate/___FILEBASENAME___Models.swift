@@ -11,9 +11,9 @@
 
 import UIKit
 
-struct ___FILEBASENAMEASIDENTIFIER___
+struct ___VARIABLE_sceneName:identifier___Models
 {
-    struct <#UseCase1#> {
+    struct UseCase1 {
         struct Request
         {
         }
@@ -24,7 +24,7 @@ struct ___FILEBASENAMEASIDENTIFIER___
         {
         }
     }
-    struct <#UseCase2#> {
+    struct UseCase2 {
         struct Request
         {
         }

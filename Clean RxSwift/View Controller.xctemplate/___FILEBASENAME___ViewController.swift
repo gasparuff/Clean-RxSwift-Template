@@ -12,24 +12,24 @@
 import UIKit
 import RxSwift
 
-protocol ___FILEBASENAMEASIDENTIFIER___ViewControllerInput
+protocol ___FILEBASENAMEASIDENTIFIER___Input
 {
-    var <#UseCase1#>Subject:PublishSubject<___FILEBASENAMEASIDENTIFIER___.<#UseCase1#>.ViewModel> { get }
-    var <#UseCase2#>Subject:PublishSubject<___FILEBASENAMEASIDENTIFIER___.<#UseCase2#>.ViewModel> { get }
+    var UseCase1ViewInputSubject:PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase1.ViewModel> { get }
+    var UseCase2ViewInputSubject:PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase2.ViewModel> { get }
 }
 
-protocol ___FILEBASENAMEASIDENTIFIER___ViewControllerOutput
+protocol ___FILEBASENAMEASIDENTIFIER___Output
 {
-    var <#UseCase1#>Subject:PublishSubject<___FILEBASENAMEASIDENTIFIER___.<#UseCase1#>.Request> { get }
-    var <#UseCase2#>Subject:PublishSubject<___FILEBASENAMEASIDENTIFIER___.<#UseCase2#>.Request> { get }
+    var UseCase1RequestOutputSubject:PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase1.Request> { get }
+    var UseCase2RequestOutputSubject:PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase2.Request> { get }
 }
 
-class ___FILEBASENAMEASIDENTIFIER___ViewController: UIViewController, ___FILEBASENAMEASIDENTIFIER___ViewControllerOutput
+class ___FILEBASENAMEASIDENTIFIER___: UIViewController, ___FILEBASENAMEASIDENTIFIER___Output
 {
-    var <#UseCase1#>Subject = PublishSubject<___FILEBASENAMEASIDENTIFIER___.<#UseCase1#>.Request>()
-    var <#UseCase2#>Subject = PublishSubject<___FILEBASENAMEASIDENTIFIER___.<#UseCase2#>.Request>()
-    
-    var input:___FILEBASENAMEASIDENTIFIER___ViewControllerInput!
+    var UseCase1RequestOutputSubject = PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase1.Request>()
+    var UseCase2RequestOutputSubject = PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase2.Request>()
+
+    var input:___FILEBASENAMEASIDENTIFIER___Input!
     
     // MARK: - Object lifecycle
     
@@ -37,7 +37,7 @@ class ___FILEBASENAMEASIDENTIFIER___ViewController: UIViewController, ___FILEBAS
     {
         super.awakeFromNib()
         configureOutputStreams()
-        ___FILEBASENAMEASIDENTIFIER___Configurator.sharedInstance.configure(viewController: self)
+        ___VARIABLE_sceneName:identifier___Configurator.sharedInstance.configure(viewController: self)
         configureInputStream()
     }
     

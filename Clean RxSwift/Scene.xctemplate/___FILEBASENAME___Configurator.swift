@@ -10,29 +10,54 @@
 //
 
 import UIKit
+import RxSwift
 
 // MARK: - Connect View, Interactor, and Presenter
 
-extension ___FILEBASENAMEASIDENTIFIER___ViewController: ___FILEBASENAMEASIDENTIFIER___InteractorInput {}
+extension ___VARIABLE_sceneName:identifier___ViewController: ___VARIABLE_sceneName:identifier___InteractorInput {
+    var UseCase1RequestSubject: PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase1.Request> {
+        return UseCase1RequestOutputSubject
+    }
+    
+    var UseCase2RequestSubject: PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase2.Request> {
+        return UseCase2RequestOutputSubject
+    }
+}
 
-extension ___FILEBASENAMEASIDENTIFIER___Interactor: ___FILEBASENAMEASIDENTIFIER___PresenterInput {}
+extension ___VARIABLE_sceneName:identifier___Interactor: ___VARIABLE_sceneName:identifier___PresenterInput {
+    var UseCase1ResponseInputSubject: PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase1.Response> {
+        return UseCase1ResponseSubject
+    }
+    
+    var UseCase2ResponseInputSubject: PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase2.Response> {
+        return UseCase2ResponseSubject
+    }
+}
 
-extension ___FILEBASENAMEASIDENTIFIER___Presenter: ___FILEBASENAMEASIDENTIFIER___ViewControllerInput {}
+extension ___VARIABLE_sceneName:identifier___Presenter: ___VARIABLE_sceneName:identifier___ViewControllerInput {
+    var UseCase1ViewInputSubject: PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase1.ViewModel> {
+        return UseCase1ViewOutputSubject
+    }
+    
+    var UseCase2ViewInputSubject: PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase2.ViewModel> {
+        return UseCase2ViewOutputSubject
+    }
+}
 
-class ___FILEBASENAMEASIDENTIFIER___Configurator
+class ___FILEBASENAMEASIDENTIFIER___
 {
   // MARK: - Object lifecycle
   
-  static let sharedInstance = ___FILEBASENAMEASIDENTIFIER___Configurator()
+  static let sharedInstance = ___FILEBASENAMEASIDENTIFIER___()
   
   private init() {}
   
   // MARK: - Configuration
   
-  func configure(viewController: ___FILEBASENAMEASIDENTIFIER___ViewController)
+  func configure(viewController: ___VARIABLE_sceneName:identifier___ViewController)
   {
-    let presenter        = ___FILEBASENAMEASIDENTIFIER___Presenter()
-    let interactor       = ___FILEBASENAMEASIDENTIFIER___Interactor()
+    let presenter        = ___VARIABLE_sceneName:identifier___Presenter()
+    let interactor       = ___VARIABLE_sceneName:identifier___Interactor()
     
     interactor.input     = viewController
     presenter.input      = interactor

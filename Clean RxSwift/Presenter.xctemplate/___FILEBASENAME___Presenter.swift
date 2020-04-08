@@ -12,41 +12,43 @@
 import UIKit
 import RxSwift
 
-protocol ___FILEBASENAMEASIDENTIFIER___PresenterInput
+protocol ___FILEBASENAMEASIDENTIFIER___Input
 {
-    var <#UseCase1#>Subject:PublishSubject<___FILEBASENAMEASIDENTIFIER___.<#UseCase1#>.Response> { get }
-    var <#UseCase2#>Subject:PublishSubject<___FILEBASENAMEASIDENTIFIER___.<#UseCase2#>.Response> { get }
+    var UseCase1ResponseInputSubject:PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase1.Response> { get }
+    var UseCase2ResponseInputSubject:PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase2.Response> { get }
 }
 
-protocol ___FILEBASENAMEASIDENTIFIER___PresenterOutput
+protocol ___FILEBASENAMEASIDENTIFIER___Output
 {
-    var <#UseCase1#>Subject:PublishSubject<___FILEBASENAMEASIDENTIFIER___.<#UseCase1#>.ViewModel> { get }
-    var <#UseCase2#>Subject:PublishSubject<___FILEBASENAMEASIDENTIFIER___.<#UseCase2#>.ViewModel> { get }
+    var UseCase1ViewOutputSubject:PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase1.ViewModel> { get }
+    var UseCase2ViewOutputSubject:PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase2.ViewModel> { get }
 }
 
-class ___FILEBASENAMEASIDENTIFIER___Presenter: ___FILEBASENAMEASIDENTIFIER___PresenterOutput
+class ___FILEBASENAMEASIDENTIFIER___: ___FILEBASENAMEASIDENTIFIER___Output
 {
-    var input:___FILEBASENAMEASIDENTIFIER___PresenterInput! {
+    var input:___FILEBASENAMEASIDENTIFIER___Input! {
         didSet {
-            input.<#UseCase1#>Subject.map(handle).bindTo(<#UseCase1#>Subject).addDisposableTo(bag)
-            input.<#UseCase2#>Subject.map(handle).bindTo(<#UseCase2#>Subject).addDisposableTo(bag)
+            input.UseCase1ResponseInputSubject.map(handle).bind(to: UseCase1ViewOutputSubject).disposed(by: disposeBag)
+            input.UseCase2ResponseInputSubject.map(handle).bind(to: UseCase2ViewOutputSubject).disposed(by: disposeBag)
         }
     }
     
-    var <#UseCase1#>Subject = PublishSubject<___FILEBASENAMEASIDENTIFIER___.<#UseCase1#>.ViewModel>()
-    var <#UseCase2#>Subject = PublishSubject<___FILEBASENAMEASIDENTIFIER___.<#UseCase2#>.ViewModel>()
+    var UseCase1ViewOutputSubject = PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase1.ViewModel>()
+    var UseCase2ViewOutputSubject = PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase2.ViewModel>()
     
-    let bag = DisposeBag()
+    let disposeBag = DisposeBag()
     
     // MARK: - Presentation logic
     
-    func handle(_ request: ___FILEBASENAMEASIDENTIFIER___.<#UseCase1#>.Response) -> ___FILEBASENAMEASIDENTIFIER___.<#UseCase1#>.ViewModel
+    func handle(_ request: ___VARIABLE_sceneName:identifier___Models.UseCase1.Response) -> ___VARIABLE_sceneName:identifier___Models.UseCase1.ViewModel
     {
     //Let the worker do some work and return the results
+        return ___VARIABLE_sceneName:identifier___Models.UseCase1.ViewModel()
     }
     
-    func handle(_ request: ___FILEBASENAMEASIDENTIFIER___.<#UseCase2#>.Response) -> ___FILEBASENAMEASIDENTIFIER___.<#UseCase2#>.ViewModel
+    func handle(_ request: ___VARIABLE_sceneName:identifier___Models.UseCase2.Response) -> ___VARIABLE_sceneName:identifier___Models.UseCase2.ViewModel
     {
     //Let the worker do some work and return the results
+        return ___VARIABLE_sceneName:identifier___Models.UseCase2.ViewModel()
     }
 }

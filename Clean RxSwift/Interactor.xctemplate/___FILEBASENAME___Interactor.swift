@@ -12,43 +12,46 @@
 import UIKit
 import RxSwift
 
-protocol ___FILEBASENAMEASIDENTIFIER___InteractorInput : class
+protocol ___FILEBASENAMEASIDENTIFIER___Input : class
 {
-    var <#UseCase1#>Subject:PublishSubject<___FILEBASENAMEASIDENTIFIER___.<#UseCase1#>.Request> { get }
-    var <#UseCase2#>Subject:PublishSubject<___FILEBASENAMEASIDENTIFIER___.<#UseCase2#>.Request> { get }
+    var UseCase1RequestSubject:PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase1.Request> { get }
+    var UseCase2RequestSubject:PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase2.Request> { get }
 }
 
-protocol ___FILEBASENAMEASIDENTIFIER___InteractorOutput
+protocol ___FILEBASENAMEASIDENTIFIER___Output
 {
-    var <#UseCase1#>Subject:PublishSubject<___FILEBASENAMEASIDENTIFIER___.<#UseCase1#>.Response> { get }
-    var <#UseCase2#>Subject:PublishSubject<___FILEBASENAMEASIDENTIFIER___.<#UseCase2#>.Response> { get }
+    var UseCase1ResponseSubject:PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase1.Response> { get }
+    var UseCase2ResponseSubject:PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase2.Response> { get }
 }
 
-class ___FILEBASENAMEASIDENTIFIER___Interactor: ___FILEBASENAMEASIDENTIFIER___InteractorOutput
+class ___FILEBASENAMEASIDENTIFIER___: ___FILEBASENAMEASIDENTIFIER___Output
 {
-    weak var input:  ___FILEBASENAMEASIDENTIFIER___InteractorInput! {
+    weak var input:  ___FILEBASENAMEASIDENTIFIER___Input! {
         didSet {
-            input.<#UseCase1#>Subject.map(handle).bindTo(<#UseCase1#>Subject).addDisposableTo(bag)
-            input.<#UseCase2#>Subject.map(handle).bindTo(<#UseCase2#>Subject).addDisposableTo(bag)
+            input.UseCase1RequestSubject.map(handle).bind(to: UseCase1ResponseSubject).disposed(by: disposeBag)
+            input.UseCase2RequestSubject.map(handle).bind(to: UseCase2ResponseSubject).disposed(by: disposeBag)
         }
     }
     
-    var <#UseCase1#>Subject = PublishSubject<___FILEBASENAMEASIDENTIFIER___.<#UseCase1#>.Response>()
-    var <#UseCase2#>Subject = PublishSubject<___FILEBASENAMEASIDENTIFIER___.<#UseCase2#>.Response>()
+    var UseCase1ResponseSubject = PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase1.Response>()
+    var UseCase2ResponseSubject = PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase2.Response>()
     
-    var worker: ___FILEBASENAMEASIDENTIFIER___Worker = ___FILEBASENAMEASIDENTIFIER___Worker()
+    var worker: ___VARIABLE_sceneName:identifier___Worker = ___VARIABLE_sceneName:identifier___Worker()
     
-    let bag = DisposeBag()
+    let disposeBag = DisposeBag()
     
     // MARK: - Business logic
     
-    func handle(_ request: ___FILEBASENAMEASIDENTIFIER___.<#UseCase1#>.Request) -> ___FILEBASENAMEASIDENTIFIER___.<#UseCase1#>.Response
+    func handle(_ request: ___VARIABLE_sceneName:identifier___Models.UseCase1.Request) -> ___VARIABLE_sceneName:identifier___Models.UseCase1.Response
     {
         //Let the worker do some work and return the results
+        return ___VARIABLE_sceneName:identifier___Models.UseCase1.Response()
+
     }
     
-    func handle(_ request: ___FILEBASENAMEASIDENTIFIER___.<#UseCase2#>.Request) -> ___FILEBASENAMEASIDENTIFIER___.<#UseCase2#>.Response
+    func handle(_ request: ___VARIABLE_sceneName:identifier___Models.UseCase2.Request) -> ___VARIABLE_sceneName:identifier___Models.UseCase2.Response
     {
         //Let the worker do some work and return the results
+        return ___VARIABLE_sceneName:identifier___Models.UseCase2.Response()
     }
 }
