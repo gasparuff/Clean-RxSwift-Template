@@ -9,46 +9,41 @@
 //  clean architecture to your iOS and Mac projects, see http://clean-swift.com
 //
 
-import UIKit
 import RxSwift
+import UIKit
 
-protocol ___FILEBASENAMEASIDENTIFIER___Input
-{
-    var UseCase1ResponseInputSubject:PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase1.Response> { get }
-    var UseCase2ResponseInputSubject:PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase2.Response> { get }
+protocol ___FILEBASENAMEASIDENTIFIER___Input {
+    var UseCase1ResponseInputSubject: PublishSubject<___VARIABLE_sceneName: identifier___Models.UseCase1.Response> { get }
+    var UseCase2ResponseInputSubject: PublishSubject<___VARIABLE_sceneName: identifier___Models.UseCase2.Response> { get }
 }
 
-protocol ___FILEBASENAMEASIDENTIFIER___Output
-{
-    var UseCase1ViewOutputSubject:PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase1.ViewModel> { get }
-    var UseCase2ViewOutputSubject:PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase2.ViewModel> { get }
+protocol ___FILEBASENAMEASIDENTIFIER___Output {
+    var UseCase1ViewOutputSubject: PublishSubject<___VARIABLE_sceneName: identifier___Models.UseCase1.ViewModel> { get }
+    var UseCase2ViewOutputSubject: PublishSubject<___VARIABLE_sceneName: identifier___Models.UseCase2.ViewModel> { get }
 }
 
-class ___FILEBASENAMEASIDENTIFIER___: ___FILEBASENAMEASIDENTIFIER___Output
-{
-    var input:___FILEBASENAMEASIDENTIFIER___Input! {
+class ___FILEBASENAMEASIDENTIFIER___: ___FILEBASENAMEASIDENTIFIER___Output {
+    var input: ___FILEBASENAMEASIDENTIFIER___Input! {
         didSet {
             input.UseCase1ResponseInputSubject.map(handle).bind(to: UseCase1ViewOutputSubject).disposed(by: disposeBag)
             input.UseCase2ResponseInputSubject.map(handle).bind(to: UseCase2ViewOutputSubject).disposed(by: disposeBag)
         }
     }
-    
-    var UseCase1ViewOutputSubject = PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase1.ViewModel>()
-    var UseCase2ViewOutputSubject = PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase2.ViewModel>()
-    
+
+    var UseCase1ViewOutputSubject = PublishSubject<___VARIABLE_sceneName: identifier___Models.UseCase1.ViewModel>()
+    var UseCase2ViewOutputSubject = PublishSubject<___VARIABLE_sceneName: identifier___Models.UseCase2.ViewModel>()
+
     let disposeBag = DisposeBag()
-    
+
     // MARK: - Presentation logic
-    
-    func handle(_ request: ___VARIABLE_sceneName:identifier___Models.UseCase1.Response) -> ___VARIABLE_sceneName:identifier___Models.UseCase1.ViewModel
-    {
-    //Let the worker do some work and return the results
-        return ___VARIABLE_sceneName:identifier___Models.UseCase1.ViewModel()
+
+    func handle(_: ___VARIABLE_sceneName: identifier___Models.UseCase1.Response) -> ___VARIABLE_sceneName: identifier___Models.UseCase1.ViewModel {
+        // Let the worker do some work and return the results
+        return ___VARIABLE_sceneName: identifier___Models.UseCase1.ViewModel()
     }
-    
-    func handle(_ request: ___VARIABLE_sceneName:identifier___Models.UseCase2.Response) -> ___VARIABLE_sceneName:identifier___Models.UseCase2.ViewModel
-    {
-    //Let the worker do some work and return the results
-        return ___VARIABLE_sceneName:identifier___Models.UseCase2.ViewModel()
+
+    func handle(_: ___VARIABLE_sceneName: identifier___Models.UseCase2.Response) -> ___VARIABLE_sceneName: identifier___Models.UseCase2.ViewModel {
+        // Let the worker do some work and return the results
+        return ___VARIABLE_sceneName: identifier___Models.UseCase2.ViewModel()
     }
 }

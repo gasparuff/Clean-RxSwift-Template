@@ -11,28 +11,20 @@
 
 import UIKit
 
-struct ___VARIABLE_sceneName:identifier___Models
-{
+struct ___VARIABLE_sceneName: identifier___Models {
     struct UseCase1 {
-        struct Request
-        {
-        }
-        struct Response
-        {
-        }
-        struct ViewModel
-        {
-        }
+        struct Request {}
+
+        struct Response {}
+
+        struct ViewModel {}
     }
+
     struct UseCase2 {
-        struct Request
-        {
-        }
-        struct Response
-        {
-        }
-        struct ViewModel
-        {
-        }
+        struct Request {}
+
+        struct Response {}
+
+        struct ViewModel {}
     }
 }

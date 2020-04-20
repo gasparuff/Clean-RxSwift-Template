@@ -9,58 +9,56 @@
 //  clean architecture to your iOS and Mac projects, see http://clean-swift.com
 //
 
-import UIKit
 import RxSwift
+import UIKit
 
 // MARK: - Connect View, Interactor, and Presenter
 
-extension ___VARIABLE_sceneName:identifier___ViewController: ___VARIABLE_sceneName:identifier___InteractorInput {
-    var UseCase1RequestSubject: PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase1.Request> {
+extension ___VARIABLE_sceneName:identifier___ViewController: ___VARIABLE_sceneName: identifier___InteractorInput {
+    var UseCase1RequestSubject: PublishSubject<___VARIABLE_sceneName: identifier___Models.UseCase1.Request> {
         return UseCase1RequestOutputSubject
     }
-    
-    var UseCase2RequestSubject: PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase2.Request> {
+
+    var UseCase2RequestSubject: PublishSubject<___VARIABLE_sceneName: identifier___Models.UseCase2.Request> {
         return UseCase2RequestOutputSubject
     }
 }
 
-extension ___VARIABLE_sceneName:identifier___Interactor: ___VARIABLE_sceneName:identifier___PresenterInput {
-    var UseCase1ResponseInputSubject: PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase1.Response> {
+extension ___VARIABLE_sceneName:identifier___Interactor: ___VARIABLE_sceneName: identifier___PresenterInput {
+    var UseCase1ResponseInputSubject: PublishSubject<___VARIABLE_sceneName: identifier___Models.UseCase1.Response> {
         return UseCase1ResponseSubject
     }
-    
-    var UseCase2ResponseInputSubject: PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase2.Response> {
+
+    var UseCase2ResponseInputSubject: PublishSubject<___VARIABLE_sceneName: identifier___Models.UseCase2.Response> {
         return UseCase2ResponseSubject
     }
 }
 
-extension ___VARIABLE_sceneName:identifier___Presenter: ___VARIABLE_sceneName:identifier___ViewControllerInput {
-    var UseCase1ViewInputSubject: PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase1.ViewModel> {
+extension ___VARIABLE_sceneName:identifier___Presenter: ___VARIABLE_sceneName: identifier___ViewControllerInput {
+    var UseCase1ViewInputSubject: PublishSubject<___VARIABLE_sceneName: identifier___Models.UseCase1.ViewModel> {
         return UseCase1ViewOutputSubject
     }
-    
-    var UseCase2ViewInputSubject: PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase2.ViewModel> {
+
+    var UseCase2ViewInputSubject: PublishSubject<___VARIABLE_sceneName: identifier___Models.UseCase2.ViewModel> {
         return UseCase2ViewOutputSubject
     }
 }
 
-class ___FILEBASENAMEASIDENTIFIER___
-{
-  // MARK: - Object lifecycle
-  
-  static let sharedInstance = ___FILEBASENAMEASIDENTIFIER___()
-  
-  private init() {}
-  
-  // MARK: - Configuration
-  
-  func configure(viewController: ___VARIABLE_sceneName:identifier___ViewController)
-  {
-    let presenter        = ___VARIABLE_sceneName:identifier___Presenter()
-    let interactor       = ___VARIABLE_sceneName:identifier___Interactor()
-    
-    interactor.input     = viewController
-    presenter.input      = interactor
-    viewController.input = presenter
-  }
+class ___FILEBASENAMEASIDENTIFIER___ {
+    // MARK: - Object lifecycle
+
+    static let sharedInstance = ___FILEBASENAMEASIDENTIFIER___()
+
+    private init() {}
+
+    // MARK: - Configuration
+
+    func configure(viewController: ___VARIABLE_sceneName: identifier___ViewController) {
+        let presenter = ___VARIABLE_sceneName: identifier___Presenter()
+        let interactor = ___VARIABLE_sceneName: identifier___Interactor()
+
+        interactor.input = viewController
+        presenter.input = interactor
+        viewController.input = presenter
+    }
 }

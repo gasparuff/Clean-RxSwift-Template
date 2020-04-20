@@ -11,12 +11,10 @@
 
 import UIKit
 
-class ___FILEBASENAMEASIDENTIFIER___
-{
-  // MARK: - Business Logic
-  
-  func doSomeWork()
-  {
-    // NOTE: Do the work
-  }
+class ___FILEBASENAMEASIDENTIFIER___ {
+    // MARK: - Business Logic
+
+    func doSomeWork() {
+        // NOTE: Do the work
+    }
 }

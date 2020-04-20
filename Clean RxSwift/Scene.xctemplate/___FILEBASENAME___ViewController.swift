@@ -9,52 +9,47 @@
 //  clean architecture to your iOS and Mac projects, see http://clean-swift.com
 //
 
-import UIKit
 import RxSwift
+import UIKit
 
-protocol ___FILEBASENAMEASIDENTIFIER___Input
-{
-    var UseCase1ViewInputSubject:PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase1.ViewModel> { get }
-    var UseCase2ViewInputSubject:PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase2.ViewModel> { get }
+protocol ___FILEBASENAMEASIDENTIFIER___Input {
+    var UseCase1ViewInputSubject: PublishSubject<___VARIABLE_sceneName: identifier___Models.UseCase1.ViewModel> { get }
+    var UseCase2ViewInputSubject: PublishSubject<___VARIABLE_sceneName: identifier___Models.UseCase2.ViewModel> { get }
 }
 
-protocol ___FILEBASENAMEASIDENTIFIER___Output
-{
-    var UseCase1RequestOutputSubject:PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase1.Request> { get }
-    var UseCase2RequestOutputSubject:PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase2.Request> { get }
+protocol ___FILEBASENAMEASIDENTIFIER___Output {
+    var UseCase1RequestOutputSubject: PublishSubject<___VARIABLE_sceneName: identifier___Models.UseCase1.Request> { get }
+    var UseCase2RequestOutputSubject: PublishSubject<___VARIABLE_sceneName: identifier___Models.UseCase2.Request> { get }
 }
 
-class ___FILEBASENAMEASIDENTIFIER___: UIViewController, ___FILEBASENAMEASIDENTIFIER___Output
-{
-    var UseCase1RequestOutputSubject = PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase1.Request>()
-    var UseCase2RequestOutputSubject = PublishSubject<___VARIABLE_sceneName:identifier___Models.UseCase2.Request>()
+class ___FILEBASENAMEASIDENTIFIER___: UIViewController, ___FILEBASENAMEASIDENTIFIER___Output {
+    var UseCase1RequestOutputSubject = PublishSubject<___VARIABLE_sceneName: identifier___Models.UseCase1.Request>()
+    var UseCase2RequestOutputSubject = PublishSubject<___VARIABLE_sceneName: identifier___Models.UseCase2.Request>()
 
-    var input:___FILEBASENAMEASIDENTIFIER___Input!
-    
+    var input: ___FILEBASENAMEASIDENTIFIER___Input!
+
     // MARK: - Object lifecycle
-    
-    override func awakeFromNib()
-    {
+
+    override func awakeFromNib() {
         super.awakeFromNib()
-        ___VARIABLE_sceneName:identifier___Configurator.sharedInstance.configure(viewController: self)
+        ___VARIABLE_sceneName: identifier___Configurator.sharedInstance.configure(viewController: self)
     }
-    
+
     // MARK: - View lifecycle
-    
-    override func viewDidLoad()
-    {
+
+    override func viewDidLoad() {
         super.viewDidLoad()
         configureInputStream()
         configureOutputStreams()
     }
-    
-    //MARK: - Stream Configuration
-    
+
+    // MARK: - Stream Configuration
+
     func configureOutputStreams() {
-        //TODO: Configure the ViewController's forwardStream here
+        // TODO: Configure the ViewController's forwardStream here
     }
-    
+
     func configureInputStream() {
-        //TODO: Subscribe to the input's forwardStream from here
+        // TODO: Subscribe to the input's forwardStream from here
     }
 }
