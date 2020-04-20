@@ -36,9 +36,7 @@ class ___FILEBASENAMEASIDENTIFIER___: UIViewController, ___FILEBASENAMEASIDENTIF
     override func awakeFromNib()
     {
         super.awakeFromNib()
-        configureOutputStreams()
         ___VARIABLE_sceneName:identifier___Configurator.sharedInstance.configure(viewController: self)
-        configureInputStream()
     }
     
     // MARK: - View lifecycle
@@ -46,6 +44,8 @@ class ___FILEBASENAMEASIDENTIFIER___: UIViewController, ___FILEBASENAMEASIDENTIF
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        configureInputStream()
+        configureOutputStreams()
     }
     
     //MARK: - Stream Configuration
